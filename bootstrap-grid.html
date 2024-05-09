@@ -151,17 +151,58 @@
     </style>
 </head>
 <body>
-    <p>To begin this algorithm of Supervised Non-linear Centroid without pre-training, we will use the labeled data (D= <em><span>{x<sub>i</sub>}</span></em>) that consist of our input vectors <em><span>{x<sub>i</sub><sup>j</sup>}</span></em> with M classes.</p>
+    <p> <p class="text-left">To begin this algorithm of Supervised Non-linear Centroid without pre-training, we will use the labeled data (D= <em><span>{x<sub>i</sub>}</span></em>) that consist of our input vectors <em><span>{x<sub>i</sub><sup>j</sup>}</span></em> with M classes.</p>
 
-<p><strong>Input:</strong> In our input for the algorithm, notice the set of parameters that were defined. The <strong>(&tau;)</strong> parameter is considered the <strong>error tolerance</strong> which is used to determine when the algorithm should stop iterating. The <strong>(&mu;)</strong> parameter represents the <strong> learning rate</strong>, which is used to update the states. The bottleneck dimension <i>m</i> represents the dimensionality of our output vector <i>y<sub>i</sub></i> from the bottleneck layer of the network.</p>
+<p><p class="text-left"><strong>Input:</strong> In our input for the algorithm, notice the set of parameters that were defined. The <strong>(&tau;)</strong> parameter is considered the <strong>error tolerance</strong> which is used to determine when the algorithm should stop iterating. The <strong>(&mu;)</strong> parameter represents the <strong> learning rate</strong>, which is used to update the states. The bottleneck dimension <i>m</i> represents the dimensionality of our output vector <i>y<sub>i</sub></i> from the bottleneck layer of the network.</p>
 <p><strong>Output:</strong> For the <strong>Bottleneck Output</strong>,<strong> <i>y<sub>i</sub></i></strong>, represents the output from the network function g(<i>x<sub>i</sub></i>) which transforms the input vector <i>x<sub>i</sub></i> into a new form. The <b>Network Parameter (&theta;)</b> represents all of unknown parameters the weights and biases that are being optimized in the network.</p> 
 
 
-<p><strong>Result: </strong>From the output, the results show the non-linear embedding of data in <i>m</i> dimensions. This is shown by the algorithm mapping the input data into a new <i>m</i>- dimensional space that causes thes the classes to be more separable and represent the underlying patterns.<p>
-<p><strong>Initialization Pre-Steps: </strong> 
+<p><p class="text-left"><strong>Result: </strong>From the output, the results show the non-linear embedding of data in <i>m</i> dimensions. This is shown by the algorithm mapping the input data into a new <i>m</i>- dimensional space that causes thes the classes to be more separable and represent the underlying patterns.<p>
+<p><p class="text-left"><strong>Initialization Pre-Steps: </strong> 
 <strong>Class centroids</strong> are the points in a featured space that reprsents the average position of all the data points belonging to a particular class <i>j</i> in which it acts as a representative center for the class. To calculate the class centroids, first set <i>C<sub>j</sub></i> to represent all the data points that belongs to class <i>j</i>. The centroid of each class is defined as |<i>C<sub>j</sub></i>| is the cardinality of class <i>C<sub>j</sub></i> which is the number of elements in class <i>j</i>. According to "UML Class Diagrams", it states," Cardinality concept indicates the number of instances of one class linked to the instances of another class. This can be simply expressed as a one to one, one to many or many to many relationship." Establishing the index set <i>I<sub>j</sub></i>, we will use this to set  the indices to refer to all the data points that are members of class <i>j</i>.
-<p><strong>Initializing Steps: </strong> 
-Begin with the splitting of the data into a training set <i>Tr</i> and validation set <i>V</i>.Start the iteration process at <i>t</i>=0 so that for each iteration, check if the change in validation loss <b>|L<sub>C</sub><sup>t+1</sup>(<i>V</i>)-L<sub>C</sub><sup>t</sup>(<i>C</i>)|</b> is greater (>) than (&tau;)
+<p><p class="text-left"><strong>Initializing Steps: </strong> 
+Begin with the splitting of the data into a training set <i>Tr</i> and validation set <i>V</i>.Start the iteration process at <i>t</i>=0 so that for each iteration, we can check if the change in validation loss <b>|L<sub>C</sub><sup>t+1</sup>(<i>V</i>)-L<sub>C</sub><sup>t</sup>(<i>C</i>)|</b> is greater than (&tau;). If so, compute the <strong>loss/error </strong> for L<sub>C</sub><i>V</i> and  L<sub>C</sub><i>Tr</i> in Equation 1: 
+
+<p class="text-center"><strong> L<sub>C</sub>(D;(&theta;))= 1/(2N)
+<mo>&#x2211;</mo> <!-- Summation --> <sub>j=1</sub><sup>M</sup></strong> <mo>&#x2211;</mo> <!-- Summation --> <sub>i &epsilon; <i>I<sub>j</sub></i></sub> ||<i>c<sub>j</sub></i>-<i>f(x<sup>i</sup>; &theta;) </i>||<sub>2</sub><sup>2</sup> 
+
+<p><p class="text-left">where f is the mapping with the ordered input-output pairs. Then compute the <strong>backpropagation error </strong> (chain rule)
+&Delta; to get the gradient (derivative) of th loss w.r.t. to the network parameters &theta;
+
+<sub>C</sub> using Equation 3:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Highlighted Code</title>
+    <style>
+        .highlight {
+            background-color: yellow; /*
+            padding: 5px; /
+            display: inline-block; /* 
+        }
+    </style>
+</head>
+<body>
+    <p class="text-center">
+        <span class="highlight">
+            <strong>&Delta;<sub>C</sub>=1/N <mo>&#x2211;</mo> <!-- Summation -->
+            <sub>j=1</sub> (<mo>&#x2211;</mo> <!-- Summation -->
+            <sub>i &epsilon; <i>I<sub>j</sub></sub> <i>f(x<sup>i</sup>;&theta;)-c<sub>j</sub>)</strong>
+        </span>
+    </p>
+
+<p class="text-left">on the training set <strong>Tr</strong>.
+
+<p class="text-left">Following the computation of the backpropagation, we can update the model parameters &theta; using the learning rate &mu; and gradient &Delta;<sub>C</sub> using the updating rule &theta;<sup>t+1</sup>=&theta;<sup>t</sup>-&mu;&Delta;<sub>C</sub>*<strong>g<sup>t</sup></strong>.
+If the conditions are not met in the first step (<b>|L<sub>C</sub><sup>t+1</sup>(<i>V</i>)-L<sub>C</sub><sup>t</sup>(<i>C</i>)|</b> is greater than (&tau;)), the iterations stop.
+
+
+
+
+</body>
+</html>
 
 
   
@@ -169,7 +210,7 @@ Begin with the splitting of the data into a training set <i>Tr</i> and validatio
 </html>
 
 
-    <p><span>{x<sup>i</sup>}<sub>i=1</sub><sup>N</sup></span></p>
+ 
 
 
 
