@@ -137,6 +137,71 @@
           </div>
         </div><!-- /.row -->
         <p>My name is Diahmin and today we will be learning about CENTROIDS !!!</p>
+        <h1>Introduction</h1>
+<p> A Centroid-Encoder (CE) is a refined version of traditional neural networks. It enhances dimensionality reduction by incorporating class labels into its architecture. Unlike standard neural networks that capture broad data structures, CE focuses on emphasizing class-specific features. This goal is achieved by directing the network’s learning to minimize distances between data points and their class centroids in a reduced dimensional space.</p>
+<p>Traditional autoencoders excel at compressing data into a manageable form. However, they often overlook external labels. They aim to reconstruct input data at their output, preserving information across a bottleneck layer. This layer is central to the processes of data compression and expansion.
+In contrast, the Centroid-Encoder introduces a supervised element by utilizing class labels to guide the compression process. It associates each class label with a centroid—a central point the CE strives to approximate within the compressed space. This strategy  preserves data integrity. It also enhances the model&#39;s utility for predictive tasks by improving class separability. This is crucial in applications for things such as medical imaging diagnosis.</p>
+<p>Centroid-Encoders organize the encoded representations around class centroids. This leads to a more structured and interpretable reduced space, where similar items cluster more distinctly based on their categories. This organization boosts the performance of subsequent classification algorithms, making post-processing analysis easier and more effective.</p><p>The cost function of the centroid-encoder is given by:</p>
+
+ 
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Center Image with Text-Align</title>
+    <style>
+        .center-text-align {
+            text-align: center; /* Centers inline or inline-block elements horizontally */
+        }
+    </style>
+</head>
+<body>
+    <div class="center-text-align">
+        <img src="3.png" alt="Descriptive Alt Text">
+    </div>
+</body>
+</html>
+<p><strong>Objective:</strong> The primary goal is to optimize the model's parameters &theta; so that the outputs (fx<sub>i</sub>; &theta;), representing the predicted positions for each data point x<sub>i</sub>, closely align with their respective class centroids c<sub>j</sub>. By doing this, the loss function (L<sub>C</sub>(D; &theta;) is minimized, and the model accurately clusters the data points into their true classes with minimized distance from their centroids.</p>
+<p>Here’s what each part of this equation means:</p>
+<p> (L<sub>C</sub>(D; &theta;): This is the cost function for the centroid-encoder. It measures the overall error/loss that the model needs to minimize during the training process.</p>
+<p> (D): Represents the dataset containing all data points x<sub>i</sub>.</p>
+<p>(&theta;): These are the parameters, like weights and biases, that the model adjusts to reduce the cost.</p>
+<p>(N): The total number of data points in the dataset.</p>
+<p>(M): The number of different classes.</p>
+<p>(c<sub>j</sub>): The centroid of class (j). This is the target where all data points in class (j) should ideally cluster.</p>
+<p>(f(x<sub>i</sub>; &theta;)): This is the model's output for data point x<sub>i</sub> after being processed by the function (f) with parameters &theta;.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Summation Symbol</title>
+</head>
+<body> 
+    <p> (&sum;<sub>j=1</sub><sup>M</sup> and &sum;<sub> &epsilon; Ij</sub>): These summations calculate the error for each data point in each class and then add these errors up across all classes. The first summation  &sum;<sub>j=1</sub><sup>M</sup> is over classes, ensuring we capture the error for every class. The second summation  &sum;<sub>i &epsilon;  Ij</sub> is within a class, summing up the errors for each data point in that class.</p> 
+ 
+<p> (|c<sub>j</sub> - f(x<subi</sub>; &theta;)|<sup2></sup>): This calculates the squared Euclidean distance between the model’s prediction for data point (x<sub>i</sub>) and the centroid (c<sub>j</sub>) of its class. Squaring the distance ensures that larger errors have a disproportionately higher impact on the total cost.
+</p>   
+</body>
+</html>
+
+
+
+
+
+
+
+  </body>
+</html>
+
+
+
+
+
+
+
+
+<p>The cost function of the centroid-encoder is given by:</p>
+
         <img src="centoridAeE.png" width=500 hight=500> 
       </div><!-- /#page-wrapper -->
 
@@ -145,6 +210,28 @@
     <!-- JavaScript -->
     <script src="js/jquery-1.10.2.js"></script>
     <script src="js/bootstrap.js"></script>
+
+<h1 id="explanation-of-loss-cost-function-for-ce">Explanation of Loss / Cost Function for CE</h1>
+<p>The cost function of the centroid-encoder is given by:</p>
+
+ 
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Center Image with Text-Align</title>
+    <style>
+        .center-text-align {
+            text-align: center; /* Centers inline or inline-block elements horizontally */
+        }
+    </style>
+</head>
+<body>
+    <div class="center-text-align">
+        <img src="3.png" alt="Descriptive Alt Text">
+    </div>
+</body>
+</html>
 
 
  
@@ -186,26 +273,25 @@
     </div>
 </body>
 </html>
-
- 
- 
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Center Image with Text-Align</title>
+    <title>Styled Page</title>
     <style>
-        .center-text-align {
-            text-align: center; /* Centers inline or inline-block elements horizontally */
+        body {
+            font-family: 'Times New Times New Roman', serif; /* Corrected font-family syntax */
+            text-align: left; /* Centers text horizontally */
+        }
+        p {
+            font-size: 196%; /* Makes paragraph text 160% of the default size */
         }
     </style>
-</head>
-<body>
-    <div class="center-text-align">
-        <img src="3.png" alt="Descriptive Alt Text">
-    </div>
-</body>
-</html>
+    
+    
+ 
+ 
+
 
 
 
@@ -305,6 +391,12 @@
     </div>
 </body>
 </html>
+
+
+
+
+
+
 
 
 

@@ -149,11 +149,11 @@
     
     
     
-   <p>Neural Networks is a form of unsupervised learning that was first developed in 1944 by Warren McCullough and Walter Pitts. Neuaral networks incorporates the means of doing machine learning where the computer learns to perform a specific task in the training data and output visual patterns or images that are correlated with the input data. Neural networks are more prominent in layers of nodes in feedforward processes, where the data moves in one direction. Nodes can be associated with several nodes within another layer that are hidden before or after the movement of the data. In this section, we will expand upon the process of feedforward process, neural network architecture, and affiliated processes.</p>
+   <p>Neural Networks is a form of unsupervised learning that was first developed in 1944 by Warren McCullough and Walter Pitts. Neural networks incorporates machine learning techniques where the computer learns to perform a specific task in the training data and output visual patterns or images that are correlated with the input data. Neural networks are more prominent in layers of nodes in feedforward processes, where the data moves in one direction. Nodes can be associated with several nodes within another layer that are hidden before or after the movement of the data. In this section, we will expand upon the process of feedforward networks, neural network's architecture, and affiliated processes.</p>
    
-  <p>To begin with, we will be discussing the structure of a feedforward network. In the feed forward network, we begin with an input layer that contains neurons (nodes) in which the data pass through and received by neurons in the hidden layers that has output nodes that has some type of association. This association is triggered by particular patterns that is incorporated in first the neuron which allows it to associate itself with the corresponding neuron in the forward hidden layer that provides similar features.</p>
+  <p>To begin with, we will be discussing the structure of a feedforward network. In the feedforward network, we begin with an input layer that contains neurons (nodes) in which the data pass through and received by neurons in the hidden layers that has output nodes that has some type of association. This association is triggered by specific patterns that are incorporated into the initial neuron, allowing it to connect with the corresponding neuron in the subsequent hidden layer that exhibits similar features.</p>
   
-  <p>Withih the hidden layer, the neurons are assiges weights to the inputs and pass through the layer. Inside of the neurons, there is a number ranging from 0 to 1 to represent the activation function. The <strong>activation function </strong> is considered the sigmoid function which helps maintain the weighted sum by reinforcing  the constraints of the range to be between 0 and 1. By updating the function, we incorporate the bias term which help manages the meaningfulness of the neuron activeness. The bias term is used as an offset parameter with weights to control the activation or "influence" of each input neuron on the output. Each weight has an associated bias. Therefore, we have the this expression to represent our feedforward model: </p>
+  <p>Within the hidden layer, the neurons are assigned weights to the inputs and pass through the layer. Inside of the neurons, there is a number ranging from 0 to 1 to represent the activation function. The <strong>activation function </strong>  is a mathematical function that determines whether or not a neuron should be activated.The sigmoid function is a form of an activation function that maintains the weighted sum by reinforcing the constraints of the range to be between 0 and 1. By updating the function, we incorporate the bias term which help manages the meaningfulness of the neuron activeness. The bias term is used as an offset parameter with weights to control the activation or "influence" of each input neuron on the output. Each weight has an associated bias. Therefore, we have the this expression to represent our feedforward model: </p>
   
    <!DOCTYPE html>
 <html lang="en">
@@ -174,18 +174,84 @@
 
 </body>
 </html>
-<p> Now let's introduce the cost/loss function. The <strong>cost/lost function </strong> quantifies the discreancies between the predicted values and the actual values in the network. The primary role/ objective of this function is to evaluate how well the network is performing by measuring the mean squared error. If the outcome from the results are small, then we have come close to model’s predictions are close to the actual target valuesi /p>
-  
-  
-  
-  
+<p> Now let's introduce the cost/ loss function. The <strong>cost/lost function </strong> quantifies the discrepancies between the predicted values and the actual values in the network. The primary role/ objective of this function is to evaluate how well the network is performing by measuring the mean squared error. If the outcome from the results are small, then the model’s predictions are close to the actual target values. If the outcome is large, then we must re-evaulate our model parameters and network's architecture. Forms of the loss function are listed below:</p>
+ <h2>Mean Squared Error</h2>
 </head>
 <body>  
     
+     <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Center Image with Text-Align</title>
+    <style>
+        .center-text-align {
+            text-align: center; /* Centers inline or inline-block elements horizontally */
+        }
+    </style>
+</head>
+<body>
+    <div class="center-text-align">
+        <img src="MSE.png" alt="Descriptive Alt Text">
+    </div>
+    
+
+</body>
+</html>
+    <p> The first cost/loss function is commonly used in regression problems and measures the squared difference between the prediicted values and actual values. </p>
     
     
+     
+    <h2>Binary Cross Entropy</h2>
+</head>
+<body>  
     
+     <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Center Image with Text-Align</title>
+    <style>
+        .center-text-align {
+            text-align: center; /* Centers inline or inline-block elements horizontally */
+        }
+    </style>
+</head>
+<body>
+    <div class="center-text-align">
+        <img src="Binary.png" alt="Descriptive Alt Text">
+    </div>
     
+
+</body>
+</html>
+    
+       <p> The second cost/loss function is commonly used in classification problems whose probalities are between 0 and 1. </p>
+       
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Center Image with Text-Align</title>
+    <style>
+        .center-text-align {
+            text-align: center; /* Centers inline or inline-block elements horizontally */
+        }
+    </style>
+</head>
+<body>
+    <div class="center-text-align">
+        <img src="Multinomial.png" alt="Descriptive Alt Text">
+    </div>
+    
+
+</body>
+</html>
+ <p>This cost/loss function is used for multinomial classification problems.    
+       
+       
+       
+       
     
     
  <!DOCTYPE html>
@@ -200,8 +266,12 @@
     </style>
 </head>
 <body>
-  
+  <p> The <strong>gradient descent</strong> is a common optimization that minimizes the loss function. The gradient gives the direction of the steepest ascent and steepest increase.Using the gradient, we can find the direction to step to increase the function and can find the negative direction to decrease the function.The gradient is calculated by finding the partial derivatives of the loss function with respect to the parameters. The parameters are updated in the opposite direction of the gradient of the loss function. The size of the step taken in this direction is determined by a parameter called the <strong>learning rate</strong>. <strong>Stochastic Gradient Descent</strong> is a form of gradient descent used in deep learning networks to sample a small fraction or <i> minibatch</i> of the observations and updates the model's parameters using the gradient of the loss function. </p>
+
     
+<p> <strong> Back Propagation</strong> is a chain rule process. Backpropagation is an algorithm  used for computing the gradient of the loss function of a neural network with respect to its weights and biases in the network. To learn more about backpropagation, please be sure to check out this link: <a class="alert-link" href="https://en.wikipedia.org/wiki/Backpropagation" target="_blank">Backpropagation Information</a>. </p> 
+
+
     <h1>Example of How the Feedforward Network is Incorporated</h1>
     <div class="video-container">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/aircAruvnKk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
