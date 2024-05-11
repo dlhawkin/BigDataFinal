@@ -127,7 +127,7 @@
 
         <div class="row">
           <div class="col-lg-12">
-            <h1>Introduction <small> Centroid and Auto-Encoders </small></h1>
+            <h1>Introduction <small> Centroid Encoders</small></h1>
             <ol class="breadcrumb">
               
               <li><a href="index.html"><i class="icon-dashboard"></i> Dashboard</a></li>
@@ -136,40 +136,6 @@
           </div>
         </div><!-- /.row -->
         <h1>Introduction</h1>
-      <h2>Auto-Encoders</h2>  
-<p>Auto-Encoders (AE)are specialized forms of artificial neural networks designed primarily for unsupervised learning tasks. They function by processing unlabeled data through a specific architecture that compresses the input into a lower-dimensional latent space, often referred to as the bottleneck, before reconstructing the output. This compression and subsequent reconstruction enable autoencoders to focus on capturing the most salient features of the data.
-
-
-Autoencoders work by encoding the high-dimensional data into a lower-dimensional space and then decoding it back to the original dimension. The latent space, or bottleneck, serves as a compact representation of the input data, and the distance within this space reflects the similarity of data points. By learning to prioritize which aspects of the data are preserved, autoencoders can effectively reduce the dimensionality of data, making it easier to process while retaining its core characteristics.
-
-This mechanism is particularly useful for dimensionality reduction, where the model is trained to ignore the "noise" — irrelevant variations or unnecessary details — in the input data. The resulting latent space representation is a cleaner, more distilled version of the input, highlighting its most important features.
-
-<h2>Architecture</h2>
-<p> <strong>Encoder</strong> role is to take the input data and compress it into a smaller, dense representation in the latent space. This involves a series of layers where each layer applies a nonlinear transformation, reducing the dimensionality gradually. </p> 
-
-<p> <strong>Latent Space</strong> represents the compressed data from the input layer.The latent spaces portrays the space affects and how well the autoencoder can compress and reconstruct the input data. In this space, the dimensions are much smaller than the input or output layers, enforcing a compression of the data that filters out noise and retains only the most significant features as learned during training.</p>
-
-<p> <strong>Decoder</strong> takes the compressed data from the latent space and reconstructs the input data. The decoder gradually upscales the data back to its original dimensionality by applying inverse transformations of those used by the encoder.</p>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Center Image with Text-Align</title>
-    <style>
-        .center-text-align {
-            text-align: center; /* Centers inline or inline-block elements horizontally */
-        }
-    </style>
-</head>
-<body>
-  <h1>Auto-Encoder Example</h1>
-    <div class="center-text-align">
-        <img src="ae.png" width=600 height=500>
-    </div>
- 
- <h2>Cetroid</h2>       
 <p> A Centroid-Encoder (CE) is a refined version of traditional neural networks. It enhances dimensionality reduction by incorporating class labels into its architecture. Unlike standard neural networks that capture broad data structures, CE focuses on emphasizing class-specific features. This goal is achieved by directing the network’s learning to minimize distances between data points and their class centroids in a reduced dimensional space.</p>
 <p>Traditional autoencoders excel at compressing data into a manageable form. However, they often overlook external labels. They aim to reconstruct input data at their output, preserving information across a bottleneck layer. This layer is central to the processes of data compression and expansion.</p>
 <p>In contrast, the Centroid-Encoder introduces a supervised element by utilizing class labels to guide the compression process. It associates each class label with a centroid—a central point the CE strives to approximate within the compressed space. This strategy  preserves data integrity. It also enhances the model's utility for predictive tasks by improving class separability. This is crucial in applications for things such as medical imaging diagnosis.</p>
