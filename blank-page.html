@@ -169,7 +169,37 @@ This mechanism is particularly useful for dimensionality reduction, where the mo
         <img src="ae.png" width=600 height=500>
     </div>
  
- <h2>Cetroid</h2>       
+ 
+ 
+ 
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Center Image with Text-Align</title>
+    <style>
+        .center-text-align {
+            text-align: center; /* Centers inline or inline-block elements horizontally */
+        }
+    </style>
+</head>
+<body>
+  <h1>Auto-Encoder Cost Function <i>Distortion error</i> </h1>
+    <div class="center-text-align">
+        <img src="costae.png" width=540 height=100>
+    </div>
+    
+<p> (L<sub>A</sub>(D; &theta;): This is the cost/loss function for the autoencoder.</p>
+<p> (D): Represents the dataset containing all data points x<sub>i</sub>.</p>
+<p>(&theta;): These are the parameters, like weights and biases, that the model adjusts to reduce the cost.</p>
+<p>(N): The total number of data points in the dataset.</p>
+  <p> (&sum;<sub>j=1</sub><sup>N</sup> : These summations calculates the sum over all N data points in the dataset.</p> 
+  <p> x<sup>i</sup>: represents the actual data points/ observations from the dataset for the i<sup>th</sup> datapoint.</p>
+<p>f(x<sup>i</sup>: &theta;): represents predicted datapoints by the model, which is a function of the input x<sup>i</sup> and the model parameters &theta;.
+<p> (|x<sup>i</sup>- f(x<sup>i</sup>: &theta;)|<sup2></sup>): This calculates the squared Euclidean distance between the actual points and the predicted points.
+
+ 
+ <h1>Centroid</h1>       
 <p> A Centroid-Encoder (CE) is a refined version of traditional neural networks. It enhances dimensionality reduction by incorporating class labels into its architecture. Unlike standard neural networks that capture broad data structures, CE focuses on emphasizing class-specific features. This goal is achieved by directing the network’s learning to minimize distances between data points and their class centroids in a reduced dimensional space.</p>
 <p>Traditional autoencoders excel at compressing data into a manageable form. However, they often overlook external labels. They aim to reconstruct input data at their output, preserving information across a bottleneck layer. This layer is central to the processes of data compression and expansion.</p>
 <p>In contrast, the Centroid-Encoder introduces a supervised element by utilizing class labels to guide the compression process. It associates each class label with a centroid—a central point the CE strives to approximate within the compressed space. This strategy  preserves data integrity. It also enhances the model's utility for predictive tasks by improving class separability. This is crucial in applications for things such as medical imaging diagnosis.</p>
@@ -234,9 +264,52 @@ This mechanism is particularly useful for dimensionality reduction, where the mo
     </div>
     <p> Let's take this example above and discuss its arhitecture and propertie:</p>
 <p><strong>Neural Network Architecture</strong>: The Input Layer which consists of 5 nodes enter the neural network where each feature represents a feature in the input dataset.The input layer passes through the hidden layer that consists of 4 neurons. In this hidden layer,   the neurons applied a weighted sum to the inputs it receives, which is then passed through a non-linear activation function. This transforms the input in ways that the network can learn complex patterns and relationships in the data. </p>
-<p><strong> The Bottleneck Layer</strong> The bottleneck layer handles the dimensionality reduction where it compresses all the information in the network and is represented by fewer neurons. In this case above, notice we only have 2 neurons in the bottlneck. </p>
-<p><strong> The Second Hidden Layer</strong> helps expands the data  to a high dimensional space after it was compressed to a lower dimension.</p>
-<p><strong> The Output Layer</strong> is the final layer where it has 5 neurons in the ouput layer.</p>
+<p><strong> The Bottleneck Layer</strong>:The bottleneck layer handles the dimensionality reduction where it compresses all the information in the network and is represented by fewer neurons. In this case above, notice we only have 2 neurons in the bottlneck. </p>
+<p><strong> The Second Hidden Layer</strong>: helps expands the data  to a high dimensional space after it was compressed to a lower dimension.</p>
+<p><strong> The Output Layer</strong>: is the final layer where it has 5 neurons in the ouput layer.</p>
+
+
+
+<h1> Mapping</h1>
+<p> The mapping of f is modeled differently for both encoders. The model composition for f is <img src="comp.png" width=70 height=20>. For the centroid encoder, the mapping of f, it  maps to the centroid. On the otherhand, the autoencoder maps to itself.</p>  
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Center Image with Text-Align</title>
+    <style>
+        .center-text-align {
+            text-align: center; /* Centers inline or inline-block elements horizontally */
+        }
+    </style>
+</head>
+<body>
+  <h3>Centroid Encoder </hs>
+    <div class="center-text-align">
+        <img src="centro.png" alt="Descriptive Alt Text">
+    </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Center Image with Text-Align</title>
+    <style>
+        .center-text-align {
+            text-align: center; /* Centers inline or inline-block elements horizontally */
+        }
+    </style>
+</head>
+<body>
+  <h3>Autocoder </hs>
+    <div class="center-text-align">
+        <img src="itself.png" alt="Descriptive Alt Text">
+    </div>
+</body>
+</html>
 </body>
 </html>
 
